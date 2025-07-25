@@ -22,5 +22,12 @@ namespace Testing.Controllers
             
             return View(products);
         }
+
+        public IActionResult ViewProduct(int id)
+        {
+            var product = repo.GetProductById(id);
+            
+            return View(product);
+        }
     }
 }
