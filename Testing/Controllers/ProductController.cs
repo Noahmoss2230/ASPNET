@@ -1,0 +1,26 @@
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Testing.Models;
+
+namespace Testing.Controllers
+{
+    public class ProductController : Controller
+    {
+        private IProductRepository repo;
+
+        public ProductController(IProductRepository repo)
+        {
+            this.repo = repo;
+        }
+        // GET
+        public IActionResult Index()
+        {
+            var products = repo.GetAllProducts();
+            
+            return View(products);
+        }
+    }
+}
